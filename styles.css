@@ -1,10 +1,12 @@
 :root {
   color-scheme: light;
-  --bg: #f6f4ef;
-  --text: #242424;
-  --muted: #6d6a64;
-  --line: #ded9cf;
-  --accent: #315c72;
+  --bg: #f4f0e8;
+  --paper: #fffaf0;
+  --text: #22211f;
+  --muted: #716c63;
+  --line: #d9d0c0;
+  --accent: #2f6672;
+  --shadow: rgba(36, 33, 28, 0.16);
 }
 
 * {
@@ -19,15 +21,30 @@ body {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+a {
+  color: inherit;
+}
+
 .page {
   width: min(920px, calc(100% - 32px));
   margin: 0 auto;
   padding: 56px 0;
 }
 
+.page-wide {
+  width: min(1280px, calc(100% - 32px));
+}
+
 .site-header {
   padding-bottom: 32px;
   border-bottom: 1px solid var(--line);
+}
+
+.gallery-hero {
+  display: grid;
+  gap: 10px;
+  min-height: 32vh;
+  align-content: end;
 }
 
 .eyebrow {
@@ -44,6 +61,14 @@ h1 {
   font-size: clamp(36px, 8vw, 72px);
   line-height: 1;
   letter-spacing: 0;
+}
+
+.intro {
+  max-width: 620px;
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.6;
 }
 
 .date-list {
@@ -91,4 +116,102 @@ h1 {
   border: 1px dashed var(--line);
   color: var(--muted);
   background: rgba(255, 255, 255, 0.45);
+}
+
+.photo-wall {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-auto-rows: 8px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+  padding: 36px 0 72px;
+}
+
+.photo {
+  grid-column: span 3;
+  grid-row: span 38;
+  margin: 0;
+  overflow: hidden;
+  background: var(--paper);
+  box-shadow: 0 18px 45px var(--shadow);
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.94) contrast(0.98);
+  transition: transform 280ms ease, filter 280ms ease;
+}
+
+.photo:hover img {
+  transform: scale(1.025);
+  filter: saturate(1.02) contrast(1);
+}
+
+.photo-feature {
+  grid-column: span 6;
+  grid-row: span 86;
+}
+
+.portrait {
+  grid-row: span 48;
+}
+
+.landscape {
+  grid-column: span 4;
+  grid-row: span 30;
+}
+
+.wide {
+  grid-column: span 6;
+  grid-row: span 34;
+}
+
+.tall {
+  grid-row: span 58;
+}
+
+@media (max-width: 900px) {
+  .photo-wall {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .photo,
+  .landscape {
+    grid-column: span 3;
+  }
+
+  .photo-feature,
+  .wide {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 620px) {
+  .page,
+  .page-wide {
+    width: min(100% - 20px, 420px);
+    padding: 32px 0;
+  }
+
+  .gallery-hero {
+    min-height: 28vh;
+  }
+
+  .photo-wall {
+    display: block;
+    padding-top: 24px;
+  }
+
+  .photo {
+    margin-bottom: 12px;
+    aspect-ratio: 2 / 3;
+  }
+
+  .landscape,
+  .wide {
+    aspect-ratio: 3 / 2;
+  }
 }
