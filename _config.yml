@@ -1,0 +1,18 @@
+# GitHub Pages builds the main branch with Jekyll.
+exclude:
+  - script
+  - tests
+  - README.md
+  - .githooks
+  - .docs
+  - .prepare
+  - "**/.prepare/**"
+  - .idea
+  - .venv
+  - __pycache__
+  - .sass-cache
+  - .jekyll-cache
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor

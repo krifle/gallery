@@ -1,1 +1,8 @@
 .DS_Store
+
+# Local planning documents and unencrypted album work files
+.docs/
+.prepare/
+__pycache__/
+*.pyc
+.venv/
