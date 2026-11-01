@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="no-referrer">
+    <meta name="robots" content="noindex, nofollow">
+    <title>2026-10 · Gallery</title>
+    <link rel="stylesheet" href="../css/encrypted-gallery.css">
+  </head>
+  <body>
+    <main class="page">
+      <nav class="breadcrumb" aria-label="현재 위치"><a href="../">Gallery</a><span aria-hidden="true">/</span><span>2026-10</span></nav>
+      <section id="unlock" class="unlock" aria-labelledby="unlock-title">
+        <p class="eyebrow">PRIVATE ALBUM · 2026-10</p>
+        <h1 id="unlock-title">함께 보는<br>여행의 순간들.</h1>
+        <p class="intro">공유받은 링크로 들어오거나,<br>전달받은 키로 앨범을 열어주세요.</p>
+        <form id="unlock-form">
+          <label for="key">공유 키</label>
+          <div class="unlock-fields">
+            <input id="key" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" required aria-describedby="unlock-message key-note" placeholder="공유 키를 붙여넣으세요">
+            <button class="primary" type="submit">앨범 열기 <span aria-hidden="true">↗</span></button>
+          </div>
+          <p id="unlock-message" role="status" aria-live="polite"></p>
+          <p id="key-note" class="small-note">키는 이 브라우저에 저장되지 않습니다.<br>새로고침하면 원래 공유 링크로 다시 열어주세요.</p>
+        </form>
+      </section>
+      <section id="album" hidden>
+        <header class="album-header">
+          <p class="eyebrow">A TRAVEL JOURNAL</p>
+          <h1 id="album-title" tabindex="-1"></h1>
+          <p id="album-count" class="album-count"></p>
+        </header>
+        <div id="day-tabs" class="day-tabs" role="tablist" aria-label="날짜별 여행 기록"></div>
+        <section id="day-panel" role="tabpanel" tabindex="0">
+          <header class="day-header">
+            <p id="day-date" class="eyebrow"></p>
+            <h2 id="day-heading"></h2>
+            <p id="day-description" class="day-description"></p>
+          </header>
+          <div id="media-grid" class="media-grid"></div>
+          <p id="empty-day" class="empty" hidden>이날의 기록은 아직 준비 중입니다.</p>
+        </section>
+      </section>
+      <footer class="footer">오래 기억하고 싶은 순간들.</footer>
+    </main>
+    <dialog id="viewer" aria-labelledby="viewer-title">
+      <div class="viewer-toolbar">
+        <span id="viewer-count"></span>
+        <button id="viewer-close" class="icon-button" type="button" aria-label="뷰어 닫기">닫기 <span aria-hidden="true">×</span></button>
+      </div>
+      <div id="viewer-stage" class="viewer-stage"></div>
+      <div class="viewer-status">
+        <p id="viewer-message" role="status" aria-live="polite"></p>
+        <button id="viewer-retry" type="button" hidden>다시 불러오기</button>
+      </div>
+      <button id="viewer-prev" class="viewer-arrow previous" type="button" aria-label="이전 미디어">‹</button>
+      <button id="viewer-next" class="viewer-arrow next" type="button" aria-label="다음 미디어">›</button>
+      <details id="viewer-info" class="viewer-info">
+        <summary><span id="viewer-title"></span><span class="info-hint" aria-hidden="true">정보 ↕</span></summary>
+        <div class="info-body"><p id="viewer-description"></p><p id="viewer-exif"></p></div>
+      </details>
+    </dialog>
+    <noscript><p class="page">앨범을 열려면 JavaScript를 활성화해주세요.</p></noscript>
+    <script type="module" src="../js/app.js"></script>
+  </body>
+</html>
